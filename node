@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+
+int running = 1;
+
+void handle_failure(int sig) {
+    running = 0;
+    printf("Node failure detected!\n");
+}
+
+int main() {
+    signal(SIGINT, handle_failure);
+
+    while (running) {
+        printf("Node alive...\n");
+        sleep(2);
+    }
+
+    printf("Node shutting down safely.\n");
+    return 0;
+}

@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    printf("IPC Performance Analysis Summary\n");
+    printf("--------------------------------\n");
+    printf("Small data sizes: Pipes perform adequately.\n");
+    printf("Large data sizes: Shared Memory is faster.\n");
+    printf("Reason: Pipes require kernel copying, shared memory does not.\n");
+    printf("Conclusion: Shared memory is more efficient for large workloads.\n");
+
+    return 0;
+}
